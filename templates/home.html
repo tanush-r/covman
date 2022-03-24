@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+BlogSpace : Free blog{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+
+{% block main %}
+<style>
+    .card-deck {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 10%;
+        padding-top: 2%;
+    }
+    .card {
+        border:1px solid black;
+    }
+    .card:hover {
+        border:1px solid greenyellow;
+    }
+</style>
+
+<div class="row">
+    <div class="col justify-content-center">
+        <h1 class="text-center">Covid Manager</h1>
+    </div>
+</div>
+<div class="card-deck text-center">
+    <div class="card mr-5">
+    <a href="{{ url_for('student_login') }}" class="font-special">
+      <img class="card-img-top p-5" src="{{ url_for('static', filename='images/graduated.png') }}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Student Login</h5>
+      </div>
+    </a>
+    </div>
+    <div class="card ml-5">
+        <a href="{{ url_for('teacher_login') }}" class="font-special">
+      <img class="card-img-top p-5" src="{{ url_for('static', filename='images/teacher.png') }}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Teacher Login</h5>
+      </div>
+    </a>
+    </div>
+    </div>
+  
+
+{% endblock %}

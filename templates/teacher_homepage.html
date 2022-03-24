@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+CovMan - Student Homepage 
+{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+
+{% block main %}
+<h1>Welcome to CovMan!!</h1>
+<br><br>
+<div class="row">
+    <div class="col">
+        <h3>Student Details Search</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <p class="text-danger">{{ msg }}</p>
+    </div>
+</div> 
+  
+<div class="row pt-3 pb-5">
+    <div class="col">
+        <form method="POST" action="{{ url_for('teacher_homepage', username=username) }}"> 
+            <input type="search" id="usn" name="usn" placeholder="USN">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</div>
+{% if student %}
+<table class="table p-3">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">USN</th>
+        <th scope="col">Name</th>
+        <th scope="col">Semester</th>
+        <th scope="col">Section</th>
+        <th scope="col">Phone No</th>
+        <th scope="col">Address</th>
+        <th scope="col">Vaccination</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ student.usn }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.semester }}</td>
+        <td>{{ student.section }}</td>
+        <td>{{ student.ph_no }}</td>
+        <td>{{ student.address }}</td>
+        <td>
+            <a href="{{ url_for('pdf_view',usn=student.usn) }}" class="btn btn-outline-primary btn-sm">View PDF</a>
+
+        </td>
+        </a>
+      </tr>
+    </tbody>
+
+</table>
+
+{% endif %}
+
+
+{% endblock %}

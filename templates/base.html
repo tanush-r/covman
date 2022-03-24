@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta content = "text/html" charset="utf-8" />
+    <!--<meta name="description" content="NexMail Email - Free, Fast and Secure with end-to-end encryption." />
+    <meta name="keywords" content="email, freemail, email account, mail, mailing, nexmail, highreptile mail, nexmail email " />
+    <meta name="author" content="HighReptile" />-->
+        <title>
+            {% block title %}{% endblock %}
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Icon -->
+		<link rel="icon" href="favicon_logo.ico"/>
+		<!--Apple Touch Icon -->
+		<link rel="apple-touch-icon" href="favicon_logo.ico">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href='https://fonts.googleapis.com/css?family=Titillium Web' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=PT Sans Caption' rel='stylesheet'>
+    <link href="" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script type="text/javascript" src=""></script>
+
+    <style>
+        .navbar{
+            background-color : #002366;
+            font-family: 'PT Sans Caption';
+        }
+        .footer{
+            padding-top: 30px;
+            padding-bottom:50px;
+            background-color: #f08080;
+            color: white;
+            font-family: 'PT Sans Caption';
+        }
+        body {
+            font-family: 'PT Sans Caption';
+        }
+        .font-special {
+            font-family: 'Merriweather';
+            color:black;
+        }
+        .footer a{
+            color: white;
+        }
+        .btn {
+            color: #f08080;
+            border-color: #f08080;
+                    }
+        .btn:hover {
+            background-color: #f08080;
+            color: white;
+            border-color: #f08080;
+            }
+        .jumbotron .btn{
+            background-color: white;
+        }
+        .jumbotron .btn:hover{
+            background-color: #f08080;
+            color: white;
+            border-color: #f08080;
+        }
+        .nav-pad {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        .ele {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .heading {
+            font-size:5vw;
+        }
+        .sub-heading {
+            font-size:3vw;
+        }
+        .para {
+            font-size:2vw;
+        }
+        
+
+        @media screen and (max-width: 600px) {
+            .align-test {
+                col: 40;
+            }
+        }
+    </style>
+
+
+
+    {% endblock %}
+</head>
+
+<body>
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow p-3 mb-5">
+    <div class = "container">
+       
+          <a class="navbar-brand" href="/" style="font-family: 'Merriweather';">CovMan</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarsExample07">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link py-0 active" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link py-0 active" href="{{ url_for('temperature') }}">Temperature</a>
+              </li>
+            </ul>
+         </div>
+        </div>
+</nav>
+
+    {% endblock %}
+<div class="container nav-pad" >
+    {% block main %}{% endblock %}
+</div>
+{% block footer %}
+<footer class="footer" >
+    <div class="container">
+        <div class = "row">
+            <div class = "col-sm">
+                <h3>CovMan 2022</h3>
+                <p>Made by Nishanth Haryharan</p>
+            </div>
+
+            <div class = "col-sm">
+                <h3>Social</h3>
+                <p> <a href="https://github.com/nishuhary">GitHub</a></p>
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+{% endblock %}
+</body>
+
+</html>

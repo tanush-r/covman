@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}
+CovMan - Student Homepage 
+{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+
+{% block main %}
+<h1>Welcome to CovMan!!</h1>
+<br><br>
+<div class="row">
+    <div class="col-sm-10">
+        <a href="{{ url_for('student_details',username=username) }}" class="btn btn-outline-primary" >Fill Details</a>
+    </div>
+</div>
+
+<h1 class="pt-5">Questions</h1>
+<div class="jumbotron">
+    
+<form method="POST" action="">
+    
+    <div class="form-group row">
+        <label class="col col-form-label"><h3>Are You Vaccinated?</h3></label>
+    </div>
+    <div class="form-group row ml-2">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="1" id="1_yes" value="option1" checked>
+            <label class="form-check-label" for="1_yes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="1" id="1_no" value="option2">
+            <label class="form-check-label" for="1_no">
+              No
+            </label>
+          </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col col-form-label"><h3>If Yes, which vaccine?</h3></label>
+    </div>
+    <div class="form-group row ml-2">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="2" id="2_Covishield" value="option1" checked>
+            <label class="form-check-label" for="2_Covishield">Covishield</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="2" id="2_Covaxin" value="option2">
+            <label class="form-check-label" for="2_Covaxin">Covaxin</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="2" id="2_Sputnik" value="option2">
+            <label class="form-check-label" for="2_Sputnik">Sputnik</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="2" id="2_None" value="option2">
+            <label class="form-check-label" for="2_None">None</label>
+          </div>
+    </div>
+    <div class="form-group row">
+        <label class="col col-form-label"><h3>Are you experiencing any of these symptoms?</h3></label>
+    </div>
+    <div class="form-group row ml-2">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="3_Cough" value="option1">
+            <label class="form-check-label" for="3_Cough">Cough</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="3_Fever" value="option2">
+            <label class="form-check-label" for="3_Fever">Fever</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="3_Sore_Throat" value="option2">
+            <label class="form-check-label" for="3_Sore_Throat">Sore Throat</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="3_Chest_Congestion" value="option2">
+            <label class="form-check-label" for="3_Chest_Congestion">Chest Congestion</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="3_Smell" value="option2">
+            <label class="form-check-label" for="3_Smell">Loss of smell and taste</label>
+          </div>
+          
+    </div>
+    <div class="form-group row">
+        <label class="col col-form-label"><h3>Have you travelled recently out of the state?</h3></label>
+    </div>
+    <div class="form-group row ml-2">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="4" id="4_yes" value="option1" checked>
+            <label class="form-check-label" for="4_yes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="4" id="4_no" value="option2">
+            <label class="form-check-label" for="4_no">
+              No
+            </label>
+          </div>
+    </div>
+
+    
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-outline-primary btn-lg">Submit</button>
+        </div>
+    </div>
+</form>
+</div>
+
+{% endblock %}
