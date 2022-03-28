@@ -206,8 +206,7 @@ def student_details():
         elif not fullname or not semester or not section or not phone_no or not address:
             msg = 'Please fill out the form !'
         else:
-            # cert_blob = base64.b64encode(cert)
-            # phone_no = int(phone_no)
+            
             cursor.execute('INSERT INTO student_details(usn,name,semester,section,ph_no,address,cert) VALUES (% s, % s, % s, % s, % s, % s, % s)', (usn,fullname,semester,section,phone_no,address, "101"))
             mysql.connection.commit()
             msg = 'You have successfully registered !'
@@ -278,12 +277,30 @@ def pdf_view():
     cd = f"attachment; filename=Main.pdf" 
     response.headers['Content-Disposition'] = cd 
     response.mimetype='application/pdf' 
-    print("Reache")
     return response
 
-@app.route('/temperature')
+@app.route('/temperature', methods =['GET', 'POST'])
 def temperature():
     msg = ""
+    
+    if request.method == 'POST':
+        if 'usn' in request.form and 'temperature' in request.form:
+            usn = request.form['usn']
+            temperature = request.form['temperature']
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('SELECT * FROM temperature_record WHERE usn = % s', (usn, ))
+            details = cursor.fetchone()
+            if details:
+                cursor.execute('UPDATE temperature_record SET temp = % s WHERE usn = % s' , (temperature, usn ))
+                mysql.connection.commit()
+            else:
+                cursor.execute('INSERT INTO temperature_record(usn,temp) VALUES (% s, % s)', (usn, temperature))
+                mysql.connection.commit()
+            msg = 'Details filled successfully'    
+            
+        else:
+            msg = 'Please fill out the form !'
+           
     return render_template("temperature.html",msg=msg)
 
 if __name__ == '__main__':

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block title %}
-BlogSpace : Free blog{% endblock %}
+CovMan: Home
+{% endblock %}
 {% block head %} {{ super() }} {% endblock %}
 
 {% block main %}
@@ -13,10 +14,12 @@ BlogSpace : Free blog{% endblock %}
         padding-top: 2%;
     }
     .card {
+        size: 50%;
         border:1px solid black;
     }
     .card:hover {
-        border:1px solid greenyellow;
+        background-color:#9bffa0;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 </style>
 
